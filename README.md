@@ -1,5 +1,5 @@
 # Parrot
-Welcom to the official repository for the Parrot programming language!
+Welcome to the official repository for the Parrot programming language!
 
 Parrot is a simple, custom, esoteric programming language created for the sole purpose of
 understanding how a high-level language will be compiled into lower level code such as assembly and
@@ -7,3 +7,78 @@ machine code. Its syntax is designed to mimic the actions of a parrot, meaning i
 and capabilities. Consequently, it is not flexible enough to be used in creating real-world software projects. It
 is also designed to be unconventional and humorous, where the programmer would feel like they're working
 with something "bird-brained".
+
+<h2>Details</h2>
+<b>Level:</b> High-level</br>
+<b>Filename Extension:</b> .prrt</br>
+<b>Compile / Execution Type:</b> Compiled to machine code</br>
+<b>Platforms:</b> 64-bit Linux & 64-bit Windows</br>
+<b>Object Oriented?:</b> NO! >:( </br>
+
+<h2>Features</h2>
+●	Memory cells</br>
+●	Move pointer between cells</br>
+●	Increment / decrement value within cell</br>
+●	Can take user input</br>
+●	Can print</br>
+●	Simple mathematics (addition and subtraction only)</br>
+●	Loops</br>
+●	Array of cells</br>
+●	Conditional statements</br>
+●	Jump to defined label</br>
+●	Quirky and bird-brained</br>
+●	Simple macros</br>
+
+<h2>Memory Model</h2>
+●	<b>Tape of memory cells</b>, like Dog and Brainfuck which is infinite to the right</br>
+●	<b>Cells</b> (each cell is 1 byte, uint8)</br>
+●	<b>Data Pointer</b> starts at cell #0</br>
+●	Capable of doing <b>MOV, INC, DEC, READ & WRITE</b></br>
+
+<h2>Code Structure</h2>
+●	<b>Indentation-based code blocks:</b> Specify code blocks using Indentation (like Python)</br>
+●	No need to specify a 'main' method, the whole code is the main method</br>
+●	No OOP, birb too dumb for that</br>
+●	<b>Labels (for code blocks)</b> - like a function but not a function, because it isn't a function. It's a label BUT it can function like a function :3</br>
+●	<b>Keywords</b>: parrot uses keywords to do it's thing</br>
+
+<h2>Keywords (Commands / Instructions)</h2>
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Function</th>
+      <th>Similar To</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>:> text here</td><td>Comment a single line</td><td>//</td></tr>
+    <tr><td>(: ... :)</td><td>Multiline comment</td><td>/* */</td></tr>
+    <tr><td>peck</td><td>Increment current cell</td><td>+</td></tr>
+    <tr><td>scratch</td><td>Decrement current cell</td><td>-</td></tr>
+    <tr><td>hop</td><td>Move pointer right</td><td>></td></tr>
+    <tr><td>hopback</td><td>Move pointer left</td><td><</td></tr>
+    <tr><td>gulp</td><td>Read 1 byte of input into the current cell</td><td>,</td></tr>
+    <tr><td>squawk</td><td>Output ASCII of current cell (newline)</td><td>.</td></tr>
+    <tr><td>stomach</td><td>Create array of memory cells</td><td></td></tr>
+    <tr><td>devour</td><td>Read a string into cells</td><td></td></tr>
+    <tr><td>regurgitate</td><td>Print devoured string</td><td></td></tr>
+    <tr><td>spin</td><td>Start a loop</td><td></td></tr>
+    <tr><td>bowl</td><td>Reference current cell</td><td></td></tr>
+    <tr><td>mimic "text"</td><td>Print string</td><td>print()</td></tr>
+    <tr><td>preen</td><td>Reset pointer to first cell</td><td></td></tr>
+    <tr><td>poop</td><td>Clear cell (set to null)</td><td></td></tr>
+    <tr><td>perch label:</td><td>Define a label</td><td>label:</td></tr>
+    <tr><td>chirp macro:</td><td>Define a macro</td><td></td></tr>
+    <tr><td>flyto label</td><td>Jump to label</td><td>JMP</td></tr>
+    <tr><td>flap label cell1 op cell2</td><td>Conditional jump</td><td>if / branch</td></tr>
+    <tr><td>add cell1 cell2</td><td>Add cell values</td><td></td></tr>
+    <tr><td>sub cell1 cell2</td><td>Subtract cell values</td><td></td></tr>
+    <tr><td>mul cell1 cell2</td><td>Multiplies (results in SQUAWK!)</td><td></td></tr>
+    <tr><td>div cell1 cell2</td><td>Divides (results in SQUAWK!)</td><td></td></tr>
+    <tr><td>bob N</td><td>Delay next process by N seconds</td><td></td></tr>
+    <tr><td>perish</td><td>End program</td><td></td></tr>
+  </tbody>
+</table>
+
+<h2>Tutorial <i>(coming soon...)</i></h2>
