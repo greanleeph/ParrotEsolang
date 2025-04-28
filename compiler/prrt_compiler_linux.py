@@ -1,4 +1,6 @@
+#Linux Compiler
 import re
+import sys
 
 class ParrotCompiler:
     def __init__(self):
@@ -191,12 +193,20 @@ class ParrotCompiler:
         print(f"Assembly written to {output_file}")
 
 if __name__ == "__main__":
-    compiler = ParrotCompiler()
-    with open("example.prrt", "r") as f:
+    if len(sys.argv) < 2:
+        print("Usage: python3 parrot_compiler.py <input_file>.prrt [output_file.asm]")
+        sys.exit(1)
+
+    input_file = sys.argv[1]
+    output_file = sys.argv[2] if len(sys.argv) > 2 else "output.asm"
+
+    with open(input_file, "r") as f:
         source = f.read()
+
+    compiler = ParrotCompiler()
     compiler.lex(source)
     compiler.parse()
     compiler.semantic_check()
     compiler.generate_ir()
     compiler.optimize()
-    compiler.generate_asm("output.asm")
+    compiler.generate_asm(output_file)
