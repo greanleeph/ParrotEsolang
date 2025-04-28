@@ -1,5 +1,5 @@
 # Parrot (WIP, currently Linux-only)
-Welcome to the official repository for the Parrot programming language!
+Welcome to the official repository for the Parrot esoteric programming language!
 
 Parrot is a simple, custom, esoteric programming language created for the sole purpose of
 understanding how a high-level language will be compiled into lower level code such as assembly and
