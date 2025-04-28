@@ -1,4 +1,4 @@
-# Parrot (WIP)
+# Parrot (WIP, currently Linux-only)
 Welcome to the official repository for the Parrot programming language!
 
 Parrot is a simple, custom, esoteric programming language created for the sole purpose of
@@ -81,5 +81,25 @@ with something "bird-brained".
   </tbody>
 </table>
 
-<h2>Tutorial <i>(Click the link if you dare🙂)</i></h2>
-<a href="https://docs.google.com/document/d/1IgqcnB6-iD6ZBU52MgKmxDRcPYgQp5ntIfE1MP1B4pk/edit?tab=t.0#heading=h.m59wwcb2bhvs">ClICk mEeEEeeeEEEeEEEE!1!!!!!!111!1!!!</url>
+<h2>Parrot Language Tutorial</h2>
+<a href="https://docs.google.com/document/d/1IgqcnB6-iD6ZBU52MgKmxDRcPYgQp5ntIfE1MP1B4pk/edit?tab=t.0#heading=h.m59wwcb2bhvs">ClICk mEeEEeeeEEEeEEEE!1!!!!!!111!1!!!</a>
+
+<h2>How to Compile (Linux Compiler)</h2>
+<b>Step 1 - Generate intermediate language (Assembly):</b>
+<pre>$ python3 prrt_compiler_linux.py parrot_code.prrt parrot_assembly.asm</pre>
+
+* Replace `parrot_code` with the actual filename of your parrot source code and `parrot_assembly` with your desired name for the assembly file.
+
+* Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
+
+<b>Step 2 - Assemble with NASM:</b>
+<pre>$ nasm -f elf64 parrot_assembly.asm -o parrot_output.o</pre>
+
+<b>Step 3 - Link with </b>`ld`
+<pre>$ ld parrot_output.o -o parrot_program_yes</pre>
+
+<b>Step 4 - Run the program:</b>
+<pre>$ ./parrot_program_yes</pre>
+
+<h2>How to Compile (Windows Compiler)</h2>
+<p>The Windows compiler is still not available yet so...</p>
