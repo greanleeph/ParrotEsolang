@@ -81,4 +81,5 @@ with something "bird-brained".
   </tbody>
 </table>
 
-<h2>Tutorial <i>(coming soon...)</i></h2>
+<h2>Tutorial <i>(Click the link if you dare🙂)</i></h2>
+<a href="https://docs.google.com/document/d/1IgqcnB6-iD6ZBU52MgKmxDRcPYgQp5ntIfE1MP1B4pk/edit?tab=t.0#heading=h.m59wwcb2bhvs">ClICk mEeEEeeeEEEeEEEE!1!!!!!!111!1!!!</url>
