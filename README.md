@@ -1,4 +1,4 @@
-# Parrot (WIP, currently Linux-only)
+# Parrot (WIP)
 Welcome to the official repository for the Parrot esoteric programming language!
 
 Parrot is a simple, custom, esoteric programming language created for the sole purpose of
@@ -86,11 +86,12 @@ with something "bird-brained".
 
 <h2>How to Compile (Linux Compiler)</h2>
 <b>Step 1 - Generate intermediate language (Assembly):</b>
-<pre>$ python3 prrt_compiler_linux.py parrot_code.prrt parrot_assembly.asm</pre>
+
+<b>NOTE:</b> Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
+
+<pre>$ python3 prrt_compiler_linux_v1.py parrot_code.prrt parrot_assembly.asm</pre>
 
 * Replace `parrot_code` with the actual filename of your parrot source code and `parrot_assembly` with your desired name for the assembly file.
-
-* Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
 
 <b>Step 2 - Assemble with NASM:</b>
 <pre>$ nasm -f elf64 parrot_assembly.asm -o parrot_output.o</pre>
@@ -102,4 +103,26 @@ with something "bird-brained".
 <pre>$ ./parrot_program_yes</pre>
 
 <h2>How to Compile (Windows Compiler)</h2>
-<p>The Windows compiler is still not available yet so...</p>
+<b>Step 1 - Generate intermediate language (Assembly):</b>
+
+<b>NOTE:</b> Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
+
+<pre>$ python3 prrt_compiler_windows_v1.py parrot_code.prrt parrot_assembly.asm</pre>
+
+* Replace `parrot_code` with the actual filename of your parrot source code and `parrot_assembly` with your desired name for the assembly file.
+
+<b>Step 2 - Assemble with NASM:</b>
+<pre>$ nasm -f win64 parrot_assembly.asm -o parrot_output.obj</pre>
+
+<b>Step 3 - Linking</b>
+<pre>$ link /subsystem:console parrot_output.obj /defaultlib:kernel32.lib /defaultlib:msvcrt.lib /entry:main /out:parrot.exe</pre>
+
+<h3>*Quick method for steps 2 and 3:</h3>
+
+Use the `build.bat` Batch file to quickly assemble and link the program.
+
+<b>NOTE:</b> Your `.asm` file should be named `parrot_assembly` when using `build.bat`)
+<pre>build.bat</pre>
+
+<b>Step 4 - Running the program:</b>
+<pre>$ parrot.exe</pre>
