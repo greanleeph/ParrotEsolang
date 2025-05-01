@@ -84,7 +84,7 @@ with something "bird-brained".
 <h2>Parrot Language Tutorial</h2>
 <a href="https://docs.google.com/document/d/1IgqcnB6-iD6ZBU52MgKmxDRcPYgQp5ntIfE1MP1B4pk/edit?tab=t.0#heading=h.m59wwcb2bhvs">ClICk mEeEEeeeEEEeEEEE!1!!!!!!111!1!!!</a>
 
-<h2>How to Compile (Linux Compiler)</h2>
+<h2>How to Compile on Linux</h2>
 <b>Step 1 - Generate intermediate language (Assembly):</b>
 
 <b>NOTE:</b> Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
@@ -102,7 +102,7 @@ with something "bird-brained".
 <b>Step 4 - Run the program:</b>
 <pre>$ ./parrot_program_yes</pre>
 
-<h2>How to Compile (Windows Compiler)</h2>
+<h2>How to Compile on Windows</h2>
 <b>Step 1 - Generate intermediate language (Assembly):</b>
 
 <b>NOTE:</b> Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
