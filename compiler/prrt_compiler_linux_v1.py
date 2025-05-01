@@ -1,9 +1,11 @@
-#Linux Compiler
+# Parrot Linux Compiler
+
 import re
 import sys
 
 class ParrotCompiler:
     def __init__(self):
+        # Internal state
         self.source = ""
         self.tokens = []
         self.ast = []
@@ -13,11 +15,17 @@ class ParrotCompiler:
         self.asm_lines = []
         self.ir = []
 
+    ##############################
+    # Phase 1: Lexical Analysis
+    ##############################
     def lex(self, code):
         self.source = code
         lines = code.splitlines()
         self.tokens = [line.rstrip() for line in lines if line.strip() and not line.strip().startswith(":>")]
 
+    ##############################
+    # Phase 2: Syntax Analysis
+    ##############################
     def parse(self):
         indent_stack = [0]
         current_block = []
@@ -58,11 +66,17 @@ class ParrotCompiler:
             else:
                 self.ast.append(node)
 
+    ##############################
+    # Phase 3: Semantic Analysis
+    ##############################
     def semantic_check(self):
         for node in self.ast:
             if node["instr"] == "flyto" and not node["args"]:
                 raise SyntaxError(f"Missing label in flyto: {node}")
 
+    #######################################
+    # Phase 4: Intermediate Code Generation
+    #######################################
     def generate_ir(self):
         self.ir = []
         for node in self.ast:
@@ -71,9 +85,16 @@ class ParrotCompiler:
             else:
                 self.ir.append(node)
 
+    ##############################################
+    # Phase 5: Code Optimization (might add later)
+    ##############################################
     def optimize(self):
-        pass
+        # add optimizer here
+        pass # no optimizations, proceed to def generate_asm
 
+    ####################################################
+    # Phase 6: Target Code Generation (Linux NASM x64)
+    ####################################################
     def generate_asm(self, output_file="output.asm"):
         self.asm_lines = [
             "section .data",
@@ -192,6 +213,9 @@ class ParrotCompiler:
             f.write("\n".join(self.asm_lines))
         print(f"Assembly written to {output_file}")
 
+##############################
+# Entry Point
+##############################
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python3 parrot_compiler.py <input_file>.prrt [output_file.asm]")
