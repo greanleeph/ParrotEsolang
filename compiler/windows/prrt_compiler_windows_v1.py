@@ -213,7 +213,7 @@ class ParrotCompiler:
 ##############################
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python parrot_windows_compiler.py <input_file>.prrt [output_file.asm]")
+        print("Usage: python prrt_compiler.py <input_file>.prrt [output_file.asm]")
         sys.exit(1)
 
     input_file = sys.argv[1]
