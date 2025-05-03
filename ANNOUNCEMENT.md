@@ -1,4 +1,4 @@
-<h2>Compiler now runs on both Linux and Windows platforms via GCC!</h2>
+<h2>Parrot compiler now runs on both Linux and Windows platforms via GCC!</h2>
 
 * This version of the compiler now uses C as the intermediary language rather than Assembly so both Linux and Windows platforms can simply use GCC to compile the intermediary language to machine code.
 
