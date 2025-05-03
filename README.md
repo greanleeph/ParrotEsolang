@@ -84,45 +84,20 @@ with something "bird-brained".
 <h2>Parrot Language Tutorial</h2>
 <a href="https://docs.google.com/document/d/1IgqcnB6-iD6ZBU52MgKmxDRcPYgQp5ntIfE1MP1B4pk/edit?tab=t.0#heading=h.m59wwcb2bhvs">ClICk mEeEEeeeEEEeEEEE!1!!!!!!111!1!!!</a>
 
-<h2>How to Compile on Linux</h2>
-<b>Step 1 - Generate intermediate language (Assembly):</b>
+<h2>Compiling Parrot to Machine Code</h2>
+
+<b>NOTE: You need to have GCC installed first because C is the intermediate language for this compiler.</b>
+
+<h3>Step 1 - Generate intermediate language (C):</h3>
 
 <b>NOTE:</b> Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
 
-<pre>$ python3 prrt_compiler_linux_v1.py parrot_code.prrt parrot_assembly.asm</pre>
+<b>Linux:</b><pre>$ python3 parrot_compiler.py parrot_code.prrt parrot_program</pre>
+<b>Windows:</b><pre>$ python3 parrot_compiler.py parrot_code.prrt parrot_program.exe</pre>
 
-* Replace `parrot_code` with the actual filename of your parrot source code and `parrot_assembly` with your desired name for the assembly file.
+Replace `parrot_code` with the actual filename of your parrot source code and `parrot_program` with your desired name for the program.
 
-<b>Step 2 - Assemble with NASM:</b>
-<pre>$ nasm -f elf64 parrot_assembly.asm -o parrot_output.o</pre>
+<h3>Step 2 - Run the program:</h3>
 
-<b>Step 3 - Link with </b>`ld`
-<pre>$ ld parrot_output.o -o parrot_program_yes</pre>
-
-<b>Step 4 - Run the program:</b>
-<pre>$ ./parrot_program_yes</pre>
-
-<h2>How to Compile on Windows</h2>
-<b>Step 1 - Generate intermediate language (Assembly):</b>
-
-<b>NOTE:</b> Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
-
-<pre>$ python3 prrt_compiler_windows_v1.py parrot_code.prrt parrot_assembly.asm</pre>
-
-* Replace `parrot_code` with the actual filename of your parrot source code and `parrot_assembly` with your desired name for the assembly file.
-
-<b>Step 2 - Assemble with NASM:</b>
-<pre>$ nasm -f win64 parrot_assembly.asm -o parrot_output.obj</pre>
-
-<b>Step 3 - Linking</b>
-<pre>$ link /subsystem:console parrot_output.obj /defaultlib:kernel32.lib /defaultlib:msvcrt.lib /entry:main /out:parrot.exe</pre>
-
-<h3>*Quick method for steps 2 and 3:</h3>
-
-Use the `build.bat` Batch file to quickly assemble and link the program.
-
-<b>NOTE:</b> Your `.asm` file should be named `parrot_assembly` when using `build.bat`)
-<pre>build.bat</pre>
-
-<b>Step 4 - Running the program:</b>
-<pre>$ parrot.exe</pre>
+<b>Linux (Terminal):</b><pre>$ ./parrot_program</pre>
+<b>Windows (cmd):</b><pre>$ parrot_program.exe</pre>
