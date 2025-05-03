@@ -88,7 +88,7 @@ with something "bird-brained".
 
 <b>NOTE: You need to have GCC installed first because C is the intermediate language for this compiler.</b>
 
-<h3>Step 1 - Generate intermediate language (C):</h3>
+<h3>Step 1 - Compile to Machine Code:</h3>
 
 <b>NOTE:</b> Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
 
