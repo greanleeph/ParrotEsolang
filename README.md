@@ -92,11 +92,9 @@ with something "bird-brained".
 
 <b>NOTE:</b> Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
 
-<b>Linux:</b><pre>$ python3 parrot_compiler.py parrot_code.prrt parrot_program</pre>
-<b>Windows:</b><pre>$ python3 parrot_compiler.py parrot_code.prrt parrot_program.exe</pre>
+<pre>$ python3 parrot_compiler.py parrot_code.prrt</pre>
 
-Replace `parrot_code` with the actual filename of your parrot source code and `parrot_program` with your desired name for the program.
-
+Replace `parrot_code` with the actual filename of your parrot source code. No need to specify the output name since the compiler will automatically name it based on the source code's filename.
 <h3>Step 2 - Run the program:</h3>
 
 <b>Linux (Terminal):</b><pre>$ ./parrot_program</pre>
