@@ -1,8 +1,5 @@
-<h2>Windows compiler now available!!</h2>
-- you can now compile Parrot in Windows environments
-- just follow the compilation guide in the README file
+<h2>Compiler now runs on both Linux and Windows platforms via GCC!</h2>
 
-<h2>Future updates:</h2>
+* This version of the compiler now uses C as the intermediary language rather than Assembly so both Linux and Windows platforms can simply use GCC to compile the intermediary language to machine code.
 
-- Embed the assembler (`NASM`) and the linker (`ld`) to the Linux compiler
-- Embed the assembler (`NASM`) and the Windows linker to the Windows compiler
+* The GCC compilation phase is also embedded within the Parrot compiler, so instead of taking 3 separate steps to compile the  `prrt` code into machine code, it now only takes one step.
