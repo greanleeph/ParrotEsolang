@@ -177,16 +177,8 @@ class ParrotLexer:
                         i += 1
                     word = line[start:i]
                     
-                    # Check if it's a cell reference with #
-                    if word.startswith('#'):
-                        try:
-                            cell_num = int(word[1:])
-                            line_tokens.append(Token(TokenType.NUMBER, cell_num, line_num))
-                        except ValueError:
-                            print(f"Error: Invalid cell reference '{word}' at line {line_num}")
-                            sys.exit(1)
-                    # Otherwise check if it's a keyword or identifier
-                    elif word in self.keywords:
+                    # Check keywords or identifiers
+                    if word in self.keywords:
                         line_tokens.append(Token(self.keywords[word], word, line_num))
                     else:
                         line_tokens.append(Token(TokenType.IDENTIFIER, word, line_num))
@@ -406,11 +398,9 @@ class ParrotParser:
             if not self.is_at_end() and self.peek().type == TokenType.INTO:
                 self.advance()  # Consume "into"
                 
-                # Get target (stomach name or cell number)
+                # Get target (stomach name)
                 if not self.is_at_end():
                     if self.peek().type == TokenType.IDENTIFIER:
-                        target = self.advance().value
-                    elif self.peek().type == TokenType.NUMBER:
                         target = self.advance().value
             
             # Check for direct string content
@@ -755,7 +745,7 @@ int main() {
         
         elif node_type == "poop":
             self.code.append(f"{self.indent()}tape[ptr] = 0;")
-            self.code.append(f'{self.indent()}printf("Birb relieved itself on cell %d\\n", ptr);')
+            self.code.append(f'{self.indent()}printf("Birb relieved itself\\n");')
         
         elif node_type == "perch":
             name = node.get("name", "")
