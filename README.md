@@ -1,4 +1,4 @@
-# Parrot (WIP)
+# Parrot
 Welcome to the official repository for the Parrot esoteric programming language!
 
 Parrot is a simple, custom, esoteric programming language created for the sole purpose of
@@ -72,11 +72,11 @@ with something "bird-brained".
     <tr><td>chirp macro:</td><td>Define a macro</td><td></td></tr>
     <tr><td>flyto label</td><td>Jump to label</td><td>JMP</td></tr>
     <tr><td>flap label cell1 op cell2</td><td>Conditional jump</td><td>if / branch</td></tr>
-    <tr><td>add cell1 cell2</td><td>Add cell values</td><td></td></tr>
-    <tr><td>sub cell1 cell2</td><td>Subtract cell values</td><td></td></tr>
-    <tr><td>mul cell1 cell2</td><td>Multiplies (results in SQUAWK!)</td><td></td></tr>
-    <tr><td>div cell1 cell2</td><td>Divides (results in SQUAWK!)</td><td></td></tr>
-    <tr><td>bob N</td><td>Delay next process by N seconds</td><td></td></tr>
+    <tr><td>add bowl [int]</td><td>Add cell values</td><td></td></tr>
+    <tr><td>sub bowl [int]</td><td>Subtract cell values</td><td></td></tr>
+    <tr><td>mul bowl [int]</td><td>Multiplies (results in SQUAWK!)</td><td></td></tr>
+    <tr><td>div bowl [int]</td><td>Divides (results in SQUAWK!)</td><td></td></tr>
+    <tr><td>bob [int]</td><td>Delay next process by [int] seconds</td><td></td></tr>
     <tr><td>perish</td><td>End program</td><td></td></tr>
   </tbody>
 </table>
