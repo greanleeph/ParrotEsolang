@@ -1,0 +1,16 @@
+:> birb not smart enough for multiplication or division
+
+peck
+peck
+peck
+
+mul bowl 3
+div bowl 1
+
+add bowl 48
+:> convert to ASCII
+
+squawk
+:> prints the value of the current cell, which is still 3 since Parrot can't multiply or divide ;-;
+
+perish

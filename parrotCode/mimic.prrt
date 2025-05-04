@@ -1,0 +1,6 @@
+:> Simple printing ('mimic')
+
+mimic "Hello there"
+mimic "I am Parrot!"
+mimic "Nice to meet you!!!!"
+perish

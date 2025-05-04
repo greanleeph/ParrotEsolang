@@ -1,0 +1,16 @@
+:> ways to use stomach, devour and regurgitate
+
+stomach food
+devour into food "hello, i'm using 'devour into' with a static string input"
+regurgitate food
+
+devour "hi, i'm using just 'devour' with a static string input and immediately regurgitating"
+regurgitate
+
+stomach birb_stomach
+devour into birb_stomach
+:> dynamic user input
+
+regurgitate birb_stomach
+
+perish

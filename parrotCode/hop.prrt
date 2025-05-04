@@ -1,0 +1,26 @@
+:> Hop, add, and squawk
+
+:> cell #0
+peck
+peck
+peck
+
+add bowl 48
+:> convert to ASCII
+
+squawk
+:> outputs the value inside cell #0
+
+hop
+:> move to cell #1
+
+peck
+peck
+
+add bowl 48
+:> convert to ASCII
+
+squawk
+:> outputs the value inside cell #1
+
+perish

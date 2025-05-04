@@ -1,0 +1,5 @@
+chirp greet:
+    mimic "hello!"
+    mimic "parrot is a birb!!!!! :D"
+
+greet

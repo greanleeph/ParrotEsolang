@@ -1,0 +1,26 @@
+:> set a value inside cell #0
+peck
+peck
+peck
+peck
+peck
+
+flap greaterThan bowl > 5	    :> (if) checks if current cell is greater than 5
+flap lessThan bowl < 5	        :> (else if) checks if current cell is less than 5
+flyto equal			            :> (else) jump to 'equal'
+
+perch greaterThan:              :> greaterThan isn't a keyword, it's just the label name. Same for the other perches
+    mimic "Greater!"
+    flyto end
+
+perch lessThan:                 
+    mimic "Less than!"
+    flyto end
+
+perch equal:
+    bob 3
+    mimic "Equal!"
+    flyto end
+
+perch end:
+    perish

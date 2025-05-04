@@ -1,0 +1,36 @@
+:> this ADD operation works fine
+
+peck
+peck
+:> cell #0 has value of 2
+
+hop
+:> move to cell 1
+
+peck
+peck
+peck
+:> cell #1 has value of 3
+
+hopback
+:> move to cell #0
+
+add #2 bowl
+:> add value from current cell (cell #0)to cell #2
+
+hop
+:> move to cell #1
+
+add #2 bowl
+:> add value from current cell (cell #1) to cell #2
+
+add #2 48
+:> add 48 to cell #2 so what squawk shows the correct ASCII
+
+hop
+:> move to cell #2
+
+squawk
+:> print '5'
+
+perish
