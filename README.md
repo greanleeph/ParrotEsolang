@@ -71,7 +71,7 @@ with something "bird-brained".
     <tr><td>perch label:</td><td>Define a label</td><td>label:</td></tr>
     <tr><td>chirp macro:</td><td>Define a macro</td><td></td></tr>
     <tr><td>flyto label</td><td>Jump to label</td><td>JMP</td></tr>
-    <tr><td>flap label cell1 op cell2</td><td>Conditional jump</td><td>if / branch</td></tr>
+    <tr><td>flap label [bowl or int] op [int]</td><td>Conditional jump</td><td>if / branch</td></tr>
     <tr><td>add bowl [int]</td><td>Add cell values</td><td></td></tr>
     <tr><td>sub bowl [int]</td><td>Subtract cell values</td><td></td></tr>
     <tr><td>mul bowl [int]</td><td>Multiplies (results in SQUAWK!)</td><td></td></tr>
