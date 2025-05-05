@@ -1,0 +1,11 @@
+:> poop
+
+peck
+peck
+peck
+add bowl 48
+squawk  :> prints '3'
+poop    :> clears the cell
+add bowl 48
+squawk  :> prints '0'
+perish
