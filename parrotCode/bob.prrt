@@ -1,0 +1,9 @@
+:> bob the birb
+
+mimic ">> hello"
+bob 1
+mimic ">> i am"
+bob 2
+mimic ">> bob!"
+bob 3
+perish
