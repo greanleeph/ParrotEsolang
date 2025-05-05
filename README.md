@@ -2,7 +2,7 @@
 Welcome to the official repository for the Parrot esoteric programming language!
 
 Parrot is a simple, custom, esoteric programming language created for the sole purpose of
-understanding how a high-level language will be compiled into lower level code such as assembly and
+understanding how a higher-level language will be compiled into an intermediary language such as C and then into a lower-level language such as
 machine code. Its syntax is designed to mimic the actions of a parrot, meaning it will have limited features
 and capabilities. Consequently, it is not flexible enough to be used in creating real-world software projects. It
 is also designed to be unconventional and humorous, where the programmer would feel like they're working
@@ -92,7 +92,7 @@ with something "bird-brained".
 
 <b>NOTE:</b> Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
 
-<pre>$ python3 parrot_compiler.py parrot_code.prrt</pre>
+<pre>$ python parrot_compiler.py parrot_code.prrt</pre>
 
 Replace `parrot_code` with the actual filename of your parrot source code. No need to specify the output name since the compiler will automatically name it based on the source code's filename.
 <h3>Step 2 - Run the program:</h3>
