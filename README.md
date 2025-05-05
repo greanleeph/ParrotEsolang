@@ -8,8 +8,16 @@ and capabilities. Consequently, it is not flexible enough to be used in creating
 is also designed to be unconventional and humorous, where the programmer would feel like they're working
 with something "bird-brained".
 
+<h2>Compiler</h2>
+
+The Parrot compiler is written in Python and it compiles the Parrot source code (.prrt) into C as an intermediary language.
+
+It then compiles the intermediary C code down to machine code via GCC.
+
+The compiler works on both 64-bit Windows and Linux systems. (There is a guide below that will tell you how).
+
 <h2>Details</h2>
-<b>Level:</b> High-level</br>
+<b>Type of Language:</b> Esoteric</br>
 <b>Filename Extension:</b> .prrt</br>
 <b>Compile / Execution Type:</b> Compiled to machine code</br>
 <b>Platforms:</b> 64-bit Linux & 64-bit Windows</br>
@@ -22,12 +30,11 @@ with something "bird-brained".
 ●	Can take user input</br>
 ●	Can print</br>
 ●	Simple mathematics (addition and subtraction only)</br>
-●	Loops</br>
 ●	Array of cells</br>
 ●	Conditional statements</br>
 ●	Jump to defined label</br>
-●	Quirky and bird-brained</br>
 ●	Simple macros</br>
+●	Quirky and bird-brained</br>
 
 <h2>Memory Model</h2>
 ●	<b>Tape of memory cells</b>, like Dog and Brainfuck which is infinite to the right</br>
@@ -63,7 +70,6 @@ with something "bird-brained".
     <tr><td>stomach</td><td>Create array of memory cells</td><td></td></tr>
     <tr><td>devour</td><td>Read a string into cells</td><td></td></tr>
     <tr><td>regurgitate</td><td>Print devoured string</td><td></td></tr>
-    <tr><td>spin</td><td>Start a loop</td><td></td></tr>
     <tr><td>bowl</td><td>Reference current cell</td><td></td></tr>
     <tr><td>mimic "text"</td><td>Print string</td><td>print()</td></tr>
     <tr><td>preen</td><td>Reset pointer to first cell</td><td></td></tr>
@@ -95,6 +101,7 @@ with something "bird-brained".
 <pre>$ python parrot_compiler.py parrot_code.prrt</pre>
 
 Replace `parrot_code` with the actual filename of your parrot source code.
+
 You can append `-o [filename]` if you want an executable filename that is different from the source code's filename.
 
 <h3>Step 2 - Run the program:</h3>
