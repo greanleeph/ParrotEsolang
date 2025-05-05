@@ -1,0 +1,18 @@
+:> flyto
+
+flyto two
+
+perch one:
+    mimic "i am birb!"
+    flyto three
+
+perch two:
+    mimic "hello"
+    flyto one
+
+perch three:
+    mimic "nice to meet you!"
+    flyto end
+
+perch end:
+    perish
