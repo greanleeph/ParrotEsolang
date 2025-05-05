@@ -27,7 +27,6 @@ class TokenType(Enum):
     STOMACH = auto()
     DEVOUR = auto()
     REGURGITATE = auto()
-    SPIN = auto()
     BOWL = auto()
     MIMIC = auto()
     PREEN = auto()
@@ -74,7 +73,6 @@ class ParrotLexer:
             "stomach": TokenType.STOMACH,
             "devour": TokenType.DEVOUR,
             "regurgitate": TokenType.REGURGITATE,
-            "spin": TokenType.SPIN,
             "bowl": TokenType.BOWL,
             "mimic": TokenType.MIMIC,
             "preen": TokenType.PREEN,
@@ -429,33 +427,6 @@ class ParrotParser:
                 target = self.advance().value
             
             return {"type": "regurgitate", "target": target}
-        
-        elif token.type == TokenType.SPIN:
-            self.advance()
-            name = None
-            body = []
-            
-            # Get loop name
-            if not self.is_at_end() and self.peek().type == TokenType.IDENTIFIER:
-                name = self.advance().value
-                if name.endswith(':'):
-                    name = name[:-1]  # Remove trailing colon
-            
-            # Parse loop body (TODO: proper indentation handling)
-            # For now, collect statements until we hit a token with lower indentation
-            current_indent = getattr(token, 'indentation', 0) + 1
-            while not self.is_at_end():
-                next_token = self.peek()
-                next_indent = getattr(next_token, 'indentation', 0)
-                
-                if next_indent < current_indent:
-                    break
-                
-                stmt = self.parse_statement()
-                if stmt:
-                    body.append(stmt)
-            
-            return {"type": "spin", "name": name, "body": body}
         
         elif token.type == TokenType.MIMIC:
             self.advance()
@@ -886,23 +857,6 @@ int main() {
                 source_expr = "tape + ptr"  # Default to current position
             
             self.code.append(f"{self.indent()}regurgitate({source_expr});")
-        
-        elif node_type == "spin":
-            name = node.get("name", "")
-            body = node.get("body", [])
-            
-            loop_start = f"spin_{name}_start"
-            
-            self.code.append(f"{self.indent()[:-4]}{loop_start}:")
-            
-            # Generate code for loop body
-            self.indent_level += 1
-            for child in body:
-                self.generate_node(child)
-            self.indent_level -= 1
-            
-            # Jump back to start of loop
-            self.code.append(f"{self.indent()}goto {loop_start};")
         
         elif node_type == "chirp_call":
             # We would need to expand macro calls here
