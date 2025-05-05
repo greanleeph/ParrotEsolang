@@ -587,7 +587,20 @@ class CodeGenerator:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+""")
+
+        # Add platform-specific headers
+        if os.name == 'nt':
+            self.code.append("""
+#include <windows.h>
+#define sleep(x) Sleep((x) * 1000)
+""")
+        else:
+            self.code.append("""
 #include <unistd.h>
+""")
+
+        self.code.append("""
 #include <stdint.h>
 
 #define TAPE_SIZE 30000
@@ -869,6 +882,9 @@ def compile_parrot(source_file, output_file=None, verbose=False):
     # Default output file is the source file name without extension
     if not output_file:
         output_file = os.path.splitext(source_file)[0]
+        # make .exe for Windows haiyaa...
+        if os.name == 'nt' and not output_file.endswith('.exe'):
+            output_file += '.exe'
     
     # Read source file
     try:
@@ -911,15 +927,29 @@ def compile_parrot(source_file, output_file=None, verbose=False):
     
     # Compile C code to executable
     try:
-        result = subprocess.run(['gcc', temp_filename, '-o', output_file], 
+        if os.name == 'nt':
+            # Windows - check for available compilers
+            if shutil.which('gcc'):
+                compiler_cmd = ['gcc']
+            elif shutil.which('cl'):
+                compiler_cmd = ['cl']  # Microsoft Visual C++
+            else:
+                print("Error: No C compiler found. Please install MinGW or MSVC.")
+                return 1
+        else:
+            # Unix-like systems
+            compiler_cmd = ['gcc'] # so much easier...
+            
+        result = subprocess.run(compiler_cmd + [temp_filename, '-o', output_file], 
                                capture_output=True, text=True)
         
         if result.returncode != 0:
             print(f"Error compiling C code: {result.stderr}")
             return 1
         
-        # Make executable
-        os.chmod(output_file, 0o755)
+        # Make executable (skip on Windows)
+        if os.name != 'nt':
+            os.chmod(output_file, 0o755)
         
         print(f"Successfully compiled {source_file} to {output_file}")
         return 0
