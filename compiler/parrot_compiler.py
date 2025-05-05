@@ -48,6 +48,7 @@ class TokenType(Enum):
     OPERATOR = auto()
     EMPTY = auto()
     INTO = auto()
+    CELL_REF = auto()
 
 class Token:
     """A token in the Parrot language"""
@@ -171,9 +172,9 @@ class ParrotLexer:
                     continue
                 
                 # Handle identifiers and keywords
-                if char.isalpha() or char == '_':
+                if char.isalpha() or char == '_' or char == '#':
                     start = i
-                    while i < len(line) and (line[i].isalnum() or line[i] == '_'):
+                    while i < len(line) and (line[i].isalnum() or line[i] == '_' or line[i] == '#'):
                         i += 1
                     word = line[start:i]
                     
@@ -181,7 +182,7 @@ class ParrotLexer:
                     if word.startswith('#'):
                         try:
                             cell_num = int(word[1:])
-                            line_tokens.append(Token(TokenType.NUMBER, cell_num, line_num))
+                            line_tokens.append(Token(TokenType.CELL_REF, cell_num, line_num))
                         except ValueError:
                             print(f"Error: Invalid cell reference '{word}' at line {line_num}")
                             sys.exit(1)
@@ -539,7 +540,9 @@ class ParrotParser:
             op_type = "add" if token.type == TokenType.ADD else "sub"
             self.advance()
             left = None
+            left_is_cell = False
             right = None
+            right_is_cell = False
             
             # Get left operand
             if not self.is_at_end():
@@ -548,6 +551,9 @@ class ParrotParser:
                     self.advance()
                 elif self.peek().type == TokenType.NUMBER:
                     left = self.advance().value
+                elif self.peek().type == TokenType.CELL_REF:
+                    left = self.advance().value
+                    left_is_cell = True
             
             # Get right operand
             if not self.is_at_end():
@@ -556,8 +562,11 @@ class ParrotParser:
                 elif self.peek().type == TokenType.BOWL:
                     right = "bowl"
                     self.advance()
+                elif self.peek().type == TokenType.CELL_REF:
+                    right = self.advance().value
+                    right_is_cell = True
             
-            return {"type": op_type, "left": left, "right": right}
+            return { "type": op_type, "left": left, "right": right, "left_is_cell": left_is_cell, "right_is_cell": right_is_cell}
         
         elif token.type == TokenType.MUL or token.type == TokenType.DIV:
             op_type = "mul" if token.type == TokenType.MUL else "div"
@@ -787,24 +796,50 @@ int main() {
         elif node_type == "add":
             left = node.get("left", "")
             right = node.get("right", "")
+            left_is_cell = node.get("left_is_cell", False)
+            right_is_cell = node.get("right_is_cell", False)
             
-            left_expr = "tape[ptr]" if left == "bowl" else f"tape[{left}]"
+            # determine left operand expression
+            if left == "bowl":
+                left_expr = "tape[ptr]"
+            elif left_is_cell:
+                left_expr = f"tape[{left}]"
+            else:
+                left_expr = f"tape[{left}]"
+
+            # determine right operand expression
+            if right == "bowl":
+                right_expr = "tape[ptr]"
+            elif right_is_cell:
+                right_expr = f"tape[{right}]"
+            else:
+                right_expr = str(right) #direct number value
             
-            if isinstance(right, int):
-                self.code.append(f"{self.indent()}{left_expr} += {right};")
-            elif right == "bowl":
-                self.code.append(f"{self.indent()}{left_expr} += tape[ptr];")
+            self.code.append(f"{self.indent()}{left_expr} += {right_expr};")
         
         elif node_type == "sub":
             left = node.get("left", "")
             right = node.get("right", "")
+            left_is_cell = node.get("left_is_cell", False)
+            right_is_cell = node.get("right_is_cell", False)
             
-            left_expr = "tape[ptr]" if left == "bowl" else f"tape[{left}]"
+            # Determine left operand expression
+            if left == "bowl":
+                left_expr = "tape[ptr]"
+            elif left_is_cell:
+                left_expr = f"tape[{left}]" 
+            else:
+                left_expr = f"tape[{left}]"  # Default to treating as cell index
             
-            if isinstance(right, int):
-                self.code.append(f"{self.indent()}{left_expr} -= {right};")
-            elif right == "bowl":
-                self.code.append(f"{self.indent()}{left_expr} -= tape[ptr];")
+            # Handle right operand based on its type
+            if right == "bowl":
+                right_expr = "tape[ptr]"
+            elif right_is_cell:
+                right_expr = f"tape[{right}]"
+            else:
+                right_expr = str(right)  # Direct number value
+            
+            self.code.append(f"{self.indent()}{left_expr} -= {right_expr};")
         
         elif node_type == "mul" or node_type == "div":
             self.code.append(f'{self.indent()}printf("SQUAWK!\\n");')
