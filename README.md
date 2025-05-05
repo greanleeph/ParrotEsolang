@@ -94,7 +94,9 @@ with something "bird-brained".
 
 <pre>$ python parrot_compiler.py parrot_code.prrt</pre>
 
-Replace `parrot_code` with the actual filename of your parrot source code. No need to specify the output name since the compiler will automatically name it based on the source code's filename.
+Replace `parrot_code` with the actual filename of your parrot source code.
+You can append `-o [filename]` if you want an executable filename that is different from the source code's filename.
+
 <h3>Step 2 - Run the program:</h3>
 
 <b>Linux (Terminal):</b><pre>$ ./parrot_program</pre>
