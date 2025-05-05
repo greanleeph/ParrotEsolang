@@ -1,0 +1,17 @@
+:> memory manipulation
+peck peck peck	:> increment cell three times (value=3)
+hop				:> move to next cell
+peck peck		:> increment second cell twice (value=2)
+hop				:> move to third cell
+peck			:> increment third cell once (value=1)
+preen			:> reset pointer to first cell
+add bowl 48     :> convert to ASCII
+squawk 			:> print first cell (3)
+hop
+add bowl 48
+squawk			:> print second cell (2)
+hop
+add bowl 48
+squawk 			:> print third cell (1)
+perish
+
