@@ -25,7 +25,7 @@ add #2 bowl
 :> add value from current cell (cell #1) to cell #2
 
 add #2 48
-:> add 48 to cell #2 so what squawk shows the correct ASCII
+:> add 48 to cell #2 so that squawk shows the correct ASCII
 
 hop
 :> move to cell #2
