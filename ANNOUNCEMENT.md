@@ -4,6 +4,8 @@
 
 * The GCC compilation phase is also embedded within the Parrot compiler, so instead of taking 3 separate steps to compile the  `prrt` code into machine code, it now only takes one step.
 
-* Bug with cell referencing fixed!!!
+* Bug with cell referencing fixed!!! (and other bugs)
   
 * Added some new demo code for Parrot
+
+* Removed 'spin' loop because I don't like it...
