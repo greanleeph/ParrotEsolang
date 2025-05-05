@@ -1,0 +1,30 @@
+:> ADD operation using cell references
+
+peck
+peck
+peck
+:> cell #0 has value of 3
+
+hop
+:> move to cell #1
+
+peck
+peck
+:> cell #1 has value of 2
+
+add #2 #0
+:> add value inside cell #0 into cell #2
+
+add #2 #1
+:> add value inside cell #1 into cell #2
+
+add #2 48
+:> convert to ASCII
+
+hop
+:> move to cell #2
+
+squawk
+:> should output '5'
+
+perish
