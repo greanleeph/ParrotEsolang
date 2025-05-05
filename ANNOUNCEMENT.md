@@ -4,4 +4,6 @@
 
 * The GCC compilation phase is also embedded within the Parrot compiler, so instead of taking 3 separate steps to compile the  `prrt` code into machine code, it now only takes one step.
 
-* Bug found in Parser and Code generator: add and sub doesn't reference cells with # properly, it treats the references merely as integers
+* Bug with cell referencing fixed!!!
+  
+* Added some new demo code for Parrot
