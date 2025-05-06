@@ -99,7 +99,7 @@ The compiler works on both 64-bit Windows and Linux systems. (There is a guide b
 <b>NOTE:</b> Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
 
 <b>Linux (Terminal):</b><pre>$ python parrot_compiler.py parrot_code.prrt</pre>
-<b>Windows (cmd):</b><pre>$ py parrot_compiler.py parrot_code.prrt</pre>
+<b>Windows (cmd or PowerShell):</b><pre>$ py parrot_compiler.py parrot_code.prrt</pre>
 Replace `parrot_code` with the actual filename of your parrot source code.
 
 You can append `-o [filename]` if you want an executable filename that is different from the source code's filename.
@@ -108,3 +108,4 @@ You can append `-o [filename]` if you want an executable filename that is differ
 
 <b>Linux (Terminal):</b><pre>$ ./parrot_program</pre>
 <b>Windows (cmd):</b><pre>$ parrot_program.exe</pre>
+<b>Windows (PowerShell):</b><pre>$ .\parrot_program.exe</pre>
