@@ -13,6 +13,7 @@ import re
 import subprocess
 import tempfile
 import argparse
+import shutil
 from enum import Enum, auto
 
 class TokenType(Enum):
