@@ -92,17 +92,19 @@ The compiler works on both 64-bit Windows and Linux systems. (There is a guide b
 
 <h2>Compiling Parrot to Machine Code</h2>
 
-<b>NOTE: You need to have GCC installed first because C is the intermediate language for this compiler.</b>
+- <b>NOTE: You need to have GCC installed first because C is the intermediate language for this compiler.</b>
 
 <h3>Step 1 - Compile to Machine Code:</h3>
 
-<b>NOTE:</b> Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
+- Make sure the `parrot_compiler.py` is in the same directory as your Parrot source codes.
+
+- <b>NOTE:</b> Do not include the `$` symbol when executing the commands, this is merely to represent the terminal prompt.
 
 <b>Linux (Terminal):</b><pre>$ python parrot_compiler.py parrot_code.prrt</pre>
 <b>Windows (cmd or PowerShell):</b><pre>$ py parrot_compiler.py parrot_code.prrt</pre>
-Replace `parrot_code` with the actual filename of your parrot source code.
+- Replace `parrot_code` with the actual filename of your parrot source code.
 
-You can append `-o [filename]` if you want an executable filename that is different from the source code's filename.
+- You can append `-o [filename]` if you want an executable filename that is different from the source code's filename.
 
 <h3>Step 2 - Run the program:</h3>
 
